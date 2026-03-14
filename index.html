@@ -6,8 +6,41 @@
     <title>The Odin Project: Library</title>
     <script src="library.js" type="text/javascript" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>Digital Library</h1>
+    </header>
+    <main>
+        <div class="button-area">
+            <button>+ Add book</button>
+        </div>
+        <div class="book-cards">
+            <div class="card">
+                <h2>Title</h2>
+                <p>Author</p>
+                <p>132 pages</p>
+                <div>
+                    <input type="checkbox" id="book" name="Book" value="Read">
+                    <label for="book">Not read yet</label>
+                </div>
+                <button>Remove</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright &copy; 
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+             fruitsofbabylon
+        </p>
+        <a href="https://github.com/fruitsofbabylon">
+            <img src="../github.png" alt="github logo and link">
+        </a>
+    </footer>
 </body>
 </html>

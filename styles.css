@@ -1,0 +1,128 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+
+  --color-dark: #246B85;
+  --color-light: #D8EDF1;
+  --color-mid: #B4D7E2;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  height: 100vh;
+  font-size: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 4fr max-content;
+  font-family: "Roboto", sans-serif;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+header {
+    background-color: var(--color-light);
+    text-align: center;
+    display: grid;
+}
+
+h1 {
+    margin: auto;
+    font-family: "Orbitron", sans-serif;
+}
+
+main {
+    background-color: var(--color-mid);
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    padding: 0 2em;
+}
+
+.button-area {
+    justify-self: center;
+    padding: 2em 0;
+}
+
+button {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    border-style: none;
+    border-radius: 0.5em;
+    font-weight: bold;
+}
+
+.button-area button {
+    padding: 1em 2em;
+}
+
+.book-cards {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+.card {
+    background-color: var(--color-white);
+    border-radius: 0.25em;
+    padding: 1em;
+    display: grid;
+    justify-items: center;
+    gap: 0.75em;
+}
+
+.card button {
+    padding: 0.5em 1em;
+}
+
+footer {
+    background-color: var(--color-mid);
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    align-items: center;
+    gap: 0.5em;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+footer img {
+    height: 2em;
+}
