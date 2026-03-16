@@ -69,6 +69,10 @@ h1 {
     font-family: "Orbitron", sans-serif;
 }
 
+h2 {
+  margin-bottom: 0.5em;
+}
+
 main {
     background-color: var(--color-mid);
     display: grid;
@@ -125,4 +129,54 @@ footer {
 
 footer img {
     height: 2em;
+}
+
+dialog {
+  border-style: none;
+  border-radius: 0.25em;
+  padding: 1em 1.5em;
+  width: 20em;
+}
+
+dialog form {
+  display: grid;
+  justify-items: center;
+  gap: 0.5em;
+}
+
+dialog button {
+  padding: 0.75em 1.25em;
+}
+
+label {
+  font-weight: 600;
+}
+
+input {
+  justify-self: stretch;
+  border-style: none;
+  background-color: var(--color-light);
+  padding: 0.5em;
+  border-radius: 0.25em;
+  color: var(--color-dark);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid var(--color-dark);
+}
+
+.read-check {
+  margin-bottom: 0.5em;
+}
+
+.read-check input {
+  margin-bottom: 0;
+}
+
+::backdrop {
+  background-color: var(--color-dark);
+  opacity: 0.75;
 }

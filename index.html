@@ -16,20 +16,9 @@
     </header>
     <main>
         <div class="button-area">
-            <button>+ Add book</button>
+            <button command="show-modal" commandfor="my-dialog">+ Add book</button>
         </div>
-        <div class="book-cards">
-            <div class="card">
-                <h2>Title</h2>
-                <p>Author</p>
-                <p>132 pages</p>
-                <div>
-                    <input type="checkbox" id="book" name="Book" value="Read">
-                    <label for="book">Not read yet</label>
-                </div>
-                <button>Remove</button>
-            </div>
-        </div>
+        <div class="book-cards"></div>
     </main>
     <footer>
         <p>Copyright &copy; 
@@ -42,5 +31,21 @@
             <img src="../github.png" alt="github logo and link">
         </a>
     </footer>
+    <dialog id="my-dialog">
+        <form>
+            <h2>Add new book</h2>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Wuthering Heights">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" placeholder="Emily Brontë">
+            <label for="pages">Number of pages</label>
+            <input type="number" id="pages" name="pages" min="1" placeholder="416" />
+            <div class="read-check">
+                <input type="checkbox" id="read" name="read" />
+                <label for="read">Not yet read</label>
+            </div>
+            <button commandfor="my-dialog" command="close">Submit</button>
+        </form>
+</dialog>
 </body>
 </html>
