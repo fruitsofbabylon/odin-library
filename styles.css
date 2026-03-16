@@ -136,6 +136,7 @@ dialog {
   border-radius: 0.25em;
   padding: 1em 1.5em;
   width: 20em;
+  box-shadow: 3px 3px 3px var(--color-dark);
 }
 
 dialog form {
