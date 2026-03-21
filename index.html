@@ -16,7 +16,7 @@
     </header>
     <main>
         <div class="button-area">
-            <button command="show-modal" commandfor="my-dialog">+ Add book</button>
+            <button id="showDialog">+ Add book</button>
         </div>
         <div class="book-cards"></div>
     </main>
@@ -31,7 +31,7 @@
             <img src="../github.png" alt="github logo and link">
         </a>
     </footer>
-    <dialog id="my-dialog">
+    <dialog id="formDialog">
         <form>
             <h2>Add new book</h2>
             <label for="title">Title</label>
@@ -44,7 +44,7 @@
                 <input type="checkbox" id="read" name="read" />
                 <label for="read">Not yet read</label>
             </div>
-            <button commandfor="my-dialog" command="close">Submit</button>
+            <button id="submitBtn">Submit</button>
         </form>
 </dialog>
 </body>
