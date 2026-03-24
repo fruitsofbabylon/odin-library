@@ -177,6 +177,11 @@ input:focus {
   margin-bottom: 0;
 }
 
+.checkbox input {
+  margin-bottom: 0;
+  margin-right: 0.5em;
+}
+
 ::backdrop {
   background-color: var(--color-dark);
   opacity: 0.75;

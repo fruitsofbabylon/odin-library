@@ -57,6 +57,7 @@ function addBookCard() {
 
     checkboxDiv.appendChild(checkbox);
     checkboxDiv.appendChild(label);
+    checkboxDiv.classList.add('checkbox');
     
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
