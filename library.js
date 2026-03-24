@@ -81,8 +81,14 @@ function addBookCard() {
 // add new book from input from the dialog
 const showBtn = document.getElementById('showDialog');
 const formDialog = document.getElementById('formDialog');
-const submitBtn = formDialog.querySelector('#submitBtn');
+const form = formDialog.querySelector('form');
 const readCheckbox = formDialog.querySelector('#read');
+
+formDialog.addEventListener('click', (event) => {
+  if (event.target === formDialog) {
+    formDialog.close();
+  }
+});
 
 showBtn.addEventListener('click', () => {
   formDialog.showModal();
@@ -91,7 +97,11 @@ showBtn.addEventListener('click', () => {
   });
 });
 
-submitBtn.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
+  if (!form.checkValidity()) {
+    return;
+  }
+
   event.preventDefault();
 
   const title = document.getElementById('title').value;
