@@ -10,6 +10,10 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 };
 
+Book.prototype.changeState = function() {
+  this.read = !this.read;
+};
+
 //create book obj based on params and add it to the books array
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
@@ -36,22 +40,32 @@ function addBookCard() {
     
     const checkboxDiv = document.createElement('div');
     const checkbox = document.createElement('input');
+    const label = document.createElement('label');
+
     checkbox.type = 'checkbox';
     checkbox.id = 'readbook';
     checkbox.name = 'readbook';
-    checkbox.value = book.read ? 'Read' : 'Not Read';
     checkbox.checked = book.read;
-    
-    const label = document.createElement('label');
+    checkbox.addEventListener('change', () => {
+      const bookItem = myLibrary.find(book => book.id === card.dataset.id);
+      bookItem.changeState();
+      label.textContent = bookItem.read ? 'Read' : 'Not read yet';
+    });
+    checkbox.value = book.read ? 'Read' : 'Not Read';
     label.htmlFor = 'readbook';
     label.textContent = book.read ? 'Read' : 'Not read yet';
-    
+
     checkboxDiv.appendChild(checkbox);
     checkboxDiv.appendChild(label);
     
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove';
     removeBtn.className = 'removeBtn';
+    removeBtn.addEventListener('click', () => {
+      const bookIndex = myLibrary.findIndex(book => book.id === card.dataset.id);
+      myLibrary.splice(bookIndex, 1);
+      card.remove();
+    });
     
     card.appendChild(title);
     card.appendChild(author);
@@ -63,27 +77,17 @@ function addBookCard() {
   };
 }
 
-//delete book card with remove btn
-function removeCardListener() {
-  const removeBtns = document.querySelectorAll('.removeBtn');
-
-  removeBtns.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      const bookCard = btn.closest('.card');
-      const bookIndex = myLibrary.findIndex(book => book.id === bookCard.dataset.id);
-      myLibrary.splice(bookIndex, 1);
-      bookCard.remove();
-    });
-  });
-}
-
 // add new book from input from the dialog
 const showBtn = document.getElementById('showDialog');
 const formDialog = document.getElementById('formDialog');
 const submitBtn = formDialog.querySelector('#submitBtn');
+const readCheckbox = formDialog.querySelector('#read');
 
 showBtn.addEventListener('click', () => {
   formDialog.showModal();
+  readCheckbox.addEventListener('change', () => {
+    formDialog.querySelector('#labelSwitch').innerHTML = readCheckbox.checked ? 'Read' : 'Not read yet';
+  });
 });
 
 submitBtn.addEventListener("click", (event) => {
@@ -96,7 +100,6 @@ submitBtn.addEventListener("click", (event) => {
 
   addBookToLibrary(title, author, pages, read);
   addBookCard();
-  removeCardListener();
 
   document.getElementById('title').value = '';
   document.getElementById('author').value = '';
@@ -108,4 +111,3 @@ submitBtn.addEventListener("click", (event) => {
 
 addBookToLibrary('Jane Eyre', 'Charlotte Brontë', 624, true);
 addBookCard();
-removeCardListener();
